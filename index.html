@@ -141,44 +141,45 @@
         <h2 style="color: #4caf50;">Products</h2>
         <div class="product" id="product1">
             <h3>Multi-Pen</h3>
-            <p>Multi-color pen: Black, Blue, Green</p>
-            <p>Price: $10.00</p>
+            <p>Multi-color pen 6 Colours: Black, Blue, Green, Red, Orange, Purple</p>
+            <p>Price: £1</p>
             <button onclick="addToBasket('Multi-Pen', 10.00)">Add to Basket</button>
         </div>
 
         <div class="product" id="product2">
             <h3>30 CM Ruler</h3>
-            <p>Price: $15.00</p>
+            <p>Price: £0.75</p>
             <button onclick="addToBasket('30 CM Ruler', 15.00)">Add to Basket</button>
         </div>
 
         <div class="product" id="product3">
             <h3>15 CM Ruler</h3>
-            <p>Price: $15.00</p>
+            <p>Price: £0.50</p>
             <button onclick="addToBasket('15 CM Ruler', 15.00)">Add to Basket</button>
         </div>
 
         <div class="product" id="product4">
             <h3>Rubber</h3>
-            <p>Price: $5.00</p>
+            <p>Price: £1.00</p>
             <button onclick="addToBasket('Rubber', 5.00)">Add to Basket</button>
         </div>
 
         <div class="product" id="product5">
             <h3>Pencils</h3>
-            <p>Price: $8.00</p>
+            <p>Price: £0.50</p>
             <button onclick="addToBasket('Pencils', 8.00)">Add to Basket</button>
         </div>
 
         <div class="product" id="product6">
             <h3>Maths Set</h3>
-            <p>Price: $12.00</p>
+            <p>Helix Oxford Maths Set [SILVER TIN]</p>
+            <p>Price: £7</p>
             <button onclick="addToBasket('Maths Set', 12.00)">Add to Basket</button>
         </div>
 
         <div class="product" id="product7">
-            <h3>Calculator</h3>
-            <p>Price: $20.00</p>
+            <h3>Scientific Calculator</h3>
+            <p>Price: £10.00</p>
             <button onclick="addToBasket('Calculator', 20.00)">Add to Basket</button>
         </div>
     </section>
@@ -210,7 +211,7 @@
     <script>
         function addToBasket(productName, price) {
             var listItem = document.createElement("li");
-            listItem.innerHTML = productName + " - $" + price.toFixed(2);
+            listItem.innerHTML = productName + " - £" + price.toFixed(2);
             document.getElementById("basket").appendChild(listItem);
         }
 
