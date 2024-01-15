@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Stationery Shop</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #2196f3;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        .product {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .product:hover {
+            transform: scale(1.02);
+        }
+
+        h3 {
+            color: #4caf50;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #333;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: auto;
+        }
+
+        label {
+            margin-bottom: 8px;
+        }
+
+        input,
+        textarea {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>RWBA Stationery Shop</h1>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#products">Products</a>
+        <a href="#basket">Shopping Basket</a>
+    </nav>
+
+    <section id="home">
+        <h2>Welcome to RWBA Stationery Shop!</h2>
+        <p>Explore our collection of high-quality stationery products.</p>
+    </section>
+
+    <section id="products">
+        <h2 style="color: #4caf50;">Products</h2>
+        <div class="product" id="product1">
+            <h3>Multi-Pen</h3>
+            <p>Multi-color pen: Black, Blue, Green</p>
+            <p>Price: $10.00</p>
+            <button onclick="addToBasket('Multi-Pen', 10.00)">Add to Basket</button>
+        </div>
+
+        <div class="product" id="product2">
+            <h3>30 CM Ruler</h3>
+            <p>Price: $15.00</p>
+            <button onclick="addToBasket('30 CM Ruler', 15.00)">Add to Basket</button>
+        </div>
+
+        <div class="product" id="product3">
+            <h3>15 CM Ruler</h3>
+            <p>Price: $15.00</p>
+            <button onclick="addToBasket('15 CM Ruler', 15.00)">Add to Basket</button>
+        </div>
+
+        <div class="product" id="product4">
+            <h3>Rubber</h3>
+            <p>Price: $5.00</p>
+            <button onclick="addToBasket('Rubber', 5.00)">Add to Basket</button>
+        </div>
+
+        <div class="product" id="product5">
+            <h3>Pencils</h3>
+            <p>Price: $8.00</p>
+            <button onclick="addToBasket('Pencils', 8.00)">Add to Basket</button>
+        </div>
+
+        <div class="product" id="product6">
+            <h3>Maths Set</h3>
+            <p>Price: $12.00</p>
+            <button onclick="addToBasket('Maths Set', 12.00)">Add to Basket</button>
+        </div>
+
+        <div class="product" id="product7">
+            <h3>Calculator</h3>
+            <p>Price: $20.00</p>
+            <button onclick="addToBasket('Calculator', 20.00)">Add to Basket</button>
+        </div>
+    </section>
+
+    <section id="basket">
+        <h2>Shopping Basket</h2>
+        <ul id="basket">
+        </ul>
+
+        <div id="checkoutForm" style="display: none;">
+            <h1>Checkout</h1>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+
+            <button onclick="buy()">Buy</button><br>
+            <small>When you click "Buy" within 24 hours, you should receive an email from codetestgroup@outlook.com
+                instructing the payment method and collection point</small><br>
+        </div>
+        <button onclick="toggleCheckoutForm()" id="checkoutButton">Checkout</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 RWBA Stationery. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function addToBasket(productName, price) {
+            var listItem = document.createElement("li");
+            listItem.innerHTML = productName + " - $" + price.toFixed(2);
+            document.getElementById("basket").appendChild(listItem);
+        }
+
+        function toggleBasket() {
+            var basket = document.getElementById("basket");
+
+            if (basket.style.display === "none" || basket.style.display === "") {
+                basket.style.display = "block";
+            } else {
+                basket.style.display = "none";
+            }
+        }
+
+        function toggleCheckoutForm() {
+            var checkoutForm = document.getElementById("checkoutForm");
+            var checkoutButton = document.getElementById("checkoutButton");
+
+            if (checkoutForm.style.display === "none" || checkoutForm.style.display === "") {
+                checkoutForm.style.display = "block";
+                checkoutButton.style.display = "none"; // Hide the Checkout button
+            } else {
+                checkoutForm.style.display = "none";
+            }
+        }
+
+        function buy() {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+
+            var basketItems = document.getElementById("basket").getElementsByTagName("li");
+
+            if (basketItems.length === 0) {
+                alert("Your basket is empty. Add items before buying.");
+                return;
+            }
+
+            var basketContents = Array.from(basketItems).map(function (item) {
+                return item.innerHTML;
+            });
+
+            var message = "Name: " + name + "\nEmail: " + email + "\nShopping Basket Contents:\n" + basketContents.join("\n");
+            sendNotification(message);
+        }
+
+        function sendNotification(message) {
+            fetch('https://ntfy.sh/codetestgroup/publish?message=' + encodeURIComponent(message) + '&priority=high&tags=warning')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Notification failed');
+                    }
+
+                })
+                .catch(error => {
+                    console.error('Error sending notification:', error);
+                    alert('Failed to send notification.');
+                });
+        }
+    </script>
+
+</body>
+
+</html>
